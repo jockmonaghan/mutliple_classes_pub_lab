@@ -1,12 +1,13 @@
 class Customer
 
-attr_accessor(:name,:wallet,:age)
+attr_accessor(:name,:wallet,:age, :drunkness)
 
 
 def initialize(name, wallet, age)
   @name = name
   @wallet = wallet
   @age = age
+  @drunkness = 0
   @drinks = []
 end
 
@@ -20,20 +21,9 @@ end
 
 def add_drink(new_drink)
   if @wallet >= new_drink.price
-  @drinks.push(new_drink)
+    @drinks.push(new_drink)
+    @drunkness += new_drink.alcohol
   end
 end
-
-# def customer_buy_drink
-#   if @customer.wallet >= @drink1.price
-#     return true
-#     add_drink(@drinks1)
-#   end
-# end
-
-
-
-
-
 
 end
