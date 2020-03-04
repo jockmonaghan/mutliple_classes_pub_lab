@@ -10,9 +10,9 @@ class TestCustomer < Minitest::Test
 
 def setup
   @customer = Customer.new("Gazza", 40, 52)
-  @drink1 = Drink.new("Beer", 3.50)
-  @drink2 = Drink.new("Vodka", 4)
-  @drink3 = Drink.new("Gin", 5)
+  @drink1 = Drink.new("Beer", 3.50, 2)
+  @drink2 = Drink.new("Vodka", 4, 6)
+  @drink3 = Drink.new("Gin", 5, 4)
   @pub = Pub.new("White_Swan", 500, [@drinks])
 end
 

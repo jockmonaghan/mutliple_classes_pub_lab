@@ -9,15 +9,14 @@ require_relative("../drink")
 class TestPub < Minitest::Test
 
   def setup
-    @drink1 = Drink.new("Beer", 3.50)
-    @drink2 = Drink.new("Vodka", 4)
-    @drink3 = Drink.new("Gin", 5)
+    @drink1 = Drink.new("Beer", 3.50, 2)
+    @drink2 = Drink.new("Vodka", 4, 6)
+    @drink3 = Drink.new("Gin", 5, 5)
 
-    @customer = Customer.new("Gazza", 40)
+    @customer = Customer.new("Gazza", 40, 52)
 
     @drinks = [@drink1, @drink2, @drink3]
     @pub = Pub.new("White_Swan", 500, @drinks)
-
   end
 
   def test_pub_has_a_name
@@ -33,7 +32,7 @@ class TestPub < Minitest::Test
   end
 
   def test_pub_sell_drink
-    @pub.sell_drink(@drink1, @customer, 3.50)
+    @pub.sell_drink(@drink1, @customer, @drink1.price)
     assert_equal(2, @pub.drink_count())
     assert_equal(1, @customer.drink_count())
     assert_equal(503.50, @pub.till)

@@ -13,10 +13,12 @@ def drink_count()
 end
 
 def sell_drink(drink, customer, amount)
-  @drinks.delete(drink)
-  customer.add_drink(drink)
-  @till += amount
-  customer.wallet -= amount
+  if customer.age >= 18
+    @drinks.delete(drink)
+    customer.add_drink(drink)
+    @till += amount
+    customer.wallet -= amount
+  end
 end
 
 end

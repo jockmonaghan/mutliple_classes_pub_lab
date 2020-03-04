@@ -1,10 +1,11 @@
 class Drink
 
-  attr_reader :name, :price
+  attr_accecssor :name, :price, :alcohol
 
-  def initialize(name, price)
+  def initialize(name, price, alcohol)
     @name = name
-    @price = price 
+    @price = price
+    @alcohol = alcohol
   end
 
 
