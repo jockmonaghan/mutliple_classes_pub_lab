@@ -8,29 +8,15 @@ def initialize(name, till, drinks)
   @drinks = drinks
 end
 
-# def get_drink
-#   return @drinks.pop
-# end
+def drink_count()
+  return @drinks.count()
+end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def sell_drink(drink, customer, amount)
+  @drinks.delete(drink)
+  customer.add_drink(drink)
+  @till += amount
+  customer.wallet -= amount
+end
 
 end
