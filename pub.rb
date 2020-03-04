@@ -14,10 +14,12 @@ end
 
 def sell_drink(drink, customer, amount)
   if customer.age >= 18
-    @drinks.delete(drink)
-    customer.add_drink(drink)
-    @till += amount
-    customer.wallet -= amount
+    if customer.drunkness <= 10
+      @drinks.delete(drink)
+      customer.add_drink(drink)
+      @till += amount
+      customer.wallet -= amount
+    end
   end
 end
 
